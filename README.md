@@ -181,6 +181,6 @@ http://localhost:5000
 
 ## Author
 
-**Muhammad Abdullah Nazir**
+**Muhammad SAQLAIN**
 AI | Machine Learning | NLP | Python | Flask
 
