@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Preprocessor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>✨ Text Preprocessing Tool</h1>
+        
+        <div class="input-section">
+            <h2>📝 Input Text</h2>
+            <textarea id="inputText" placeholder="Enter your text here... Try: Hello World! This is 2024."></textarea>
+        </div>
+
+        <div class="options-section">
+    <h2>⚙️ Preprocessing Options</h2>
+    <div class="options-grid">
+        <label>
+            <input type="checkbox" id="lowercase" checked>
+            Convert to Lowercase
+        </label>
+        <label>
+            <input type="checkbox" id="remove_punctuation" checked>
+            Remove Punctuation
+        </label>
+        <label>
+            <input type="checkbox" id="remove_numbers">
+            Remove Numbers
+        </label>
+        <label>
+            <input type="checkbox" id="remove_extra_spaces" checked>
+            Remove Extra Spaces
+        </label>
+        <label>
+            <input type="checkbox" id="tokenize">
+            Tokenize (Split into Words)
+        </label>
+        <label>
+            <input type="checkbox" id="remove_stopwords">
+            Remove Stopwords (the, is, a, etc.)
+        </label>
+        <label class="highlight">
+            <input type="checkbox" id="stemming">
+            🌿 Stemming (running → run)
+        </label>
+        <label class="highlight">
+            <input type="checkbox" id="lemmatization">
+            📖 Lemmatization (better → good)
+        </label>
+        <label class="highlight">
+            <input type="checkbox" id="pos_tagging">
+            🏷️ POS Tagging (Noun, Verb, etc.)
+        </label>
+    </div>
+</div>
+
+        <button id="processBtn" class="process-btn">🚀 Process Text</button>
+
+        <div class="output-section">
+    <h2>📊 Output</h2>
+    <div id="stats" class="stats"></div>
+    <textarea id="outputText" placeholder="Processed text will appear here..." readonly></textarea>
+    <div id="tokens" class="tokens"></div>
+    <div id="stemmed" class="stemmed"></div>
+    <div id="lemmatized" class="lemmatized"></div>
+    <div id="pos" class="pos"></div>
+</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
