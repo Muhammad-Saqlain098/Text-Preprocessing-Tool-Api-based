@@ -1,73 +1,68 @@
-# Text Preprocessing API using Flask and NLTK
+This project presents a flexible and configurable Text Preprocessing REST API developed using Python, Flask, and NLTK.
+The API enables users to perform multiple Natural Language Processing (NLP) preprocessing tasks on text by simply toggling options in a JSON request.
 
-This project implements a **configurable text preprocessing API** using **Python, Flask, and NLTK**.
-It allows users to preprocess text dynamically by selecting different NLP operations through a JSON request.
+It is designed as a reusable backend service that can be integrated into machine learning pipelines, NLP applications, or frontend systems.
 
-The API supports common **Natural Language Processing (NLP) preprocessing steps** such as tokenization, stopword removal, stemming, lemmatization, and POS tagging.
+Project Purpose
 
----
+The main goals of this project are:
 
-## Project Objective
+To design a reusable NLP preprocessing backend
 
-* Build a reusable **text preprocessing backend API**
-* Apply core **NLP preprocessing techniques**
-* Allow users to enable or disable preprocessing steps dynamically
-* Return structured preprocessing results in JSON format
+To implement essential text cleaning and normalization techniques
 
----
+To allow dynamic control over preprocessing steps
 
-## Technologies Used
+To return well-structured JSON responses for downstream use
 
-* Python 3
-* Flask
-* Flask-CORS
-* NLTK (Natural Language Toolkit)
-* Regular Expressions (re)
-* JSON-based API communication
+Technology Stack
 
----
+The project uses the following tools and libraries:
 
-## NLP Operations Supported
+Python 3
 
-The API supports the following preprocessing options:
+Flask – REST API framework
 
-| Operation           | Description                       |
-| ------------------- | --------------------------------- |
-| Lowercasing         | Converts text to lowercase        |
-| Remove punctuation  | Removes punctuation symbols       |
-| Remove numbers      | Removes numeric characters        |
-| Remove extra spaces | Normalizes whitespace             |
-| Tokenization        | Splits text into words            |
-| Stopword removal    | Removes common English stopwords  |
-| Stemming            | Reduces words to root form        |
-| Lemmatization       | Converts words to dictionary form |
-| POS tagging         | Assigns part-of-speech tags       |
+Flask-CORS – Cross-origin request handling
 
-Each option can be turned **on or off independently**.
+NLTK (Natural Language Toolkit) – NLP operations
 
----
+Regular Expressions (re) – Text cleaning
 
-## API Endpoints
+JSON – API communication format
 
-### Home
+Supported NLP Preprocessing Features
 
-**GET /**
+Users can enable or disable each preprocessing step independently:
 
-```
+Feature	Functionality Description
+Lowercasing	Converts all characters to lowercase
+Punctuation Removal	Eliminates punctuation symbols
+Number Removal	Removes numeric values
+Whitespace Cleanup	Normalizes extra spaces
+Tokenization	Splits text into individual words
+Stopword Filtering	Removes common English stopwords
+Stemming	Reduces words to their root form
+Lemmatization	Converts words to dictionary base form
+POS Tagging	Assigns grammatical tags to words
+
+Each operation is optional and configurable via the request payload.
+
+API Routes
+Root Endpoint
+
+GET /
+
 http://localhost:5000/
-```
 
-Returns a simple message indicating that the API is running.
 
----
+Returns a confirmation message indicating that the API server is active.
 
-### Preprocess Text
+Text Preprocessing Endpoint
 
-**POST /preprocess**
+POST /preprocess
 
-#### Request Body (JSON):
-
-```json
+Request Payload (JSON)
 {
   "text": "Natural Language Processing is very interesting!",
   "options": {
@@ -82,13 +77,8 @@ Returns a simple message indicating that the API is running.
     "pos_tagging": true
   }
 }
-```
 
----
-
-#### Response (JSON):
-
-```json
+Sample Response (JSON)
 {
   "processed_text": "natur languag process interest",
   "tokens": ["natural", "language", "processing", "interesting"],
@@ -98,89 +88,80 @@ Returns a simple message indicating that the API is running.
   "original_length": 46,
   "processed_length": 33
 }
-```
 
----
+Processing Workflow
 
-## How It Works
+The client sends raw text along with preprocessing preferences
 
-1. User sends raw text with preprocessing options
-2. API applies selected NLP operations sequentially
-3. Results are returned with:
+The API applies selected NLP steps sequentially
 
-   * Processed text
-   * Tokens
-   * Stemmed / lemmatized words (if enabled)
-   * POS tags (if enabled)
-   * Original and processed text length
+The response includes:
 
-NLTK resources are automatically downloaded if not available.
+Cleaned and processed text
 
----
+Tokenized output
 
-## How to Run the Project
+Stemmed or lemmatized words (if enabled)
 
-### Install Dependencies
+Part-of-speech tags (if enabled)
 
-```bash
+Original vs processed text length
+
+All required NLTK datasets are automatically downloaded if missing.
+
+Running the Application
+Install Required Packages
 pip install flask flask-cors nltk
-```
 
-### Run the Server
-
-```bash
+Start the Server
 python app.py
-```
 
-### Access API
-
-```
+Access the API
 http://localhost:5000
-```
 
----
-
-## Project Structure
-
-```
+Project Directory Layout
 ├── app.py
 ├── README.md
-```
 
----
+Notable Features
 
-## Key Highlights
+Highly modular preprocessing pipeline
 
-* Modular and configurable preprocessing pipeline
-* Supports multiple NLP techniques in one API
-* Automatic NLTK resource handling
-* Suitable for frontend or ML pipeline integration
-* Beginner-friendly and educational
+Supports multiple NLP operations through a single endpoint
 
----
+Dynamic configuration via JSON
 
-## Use Cases
+Automatic handling of NLTK dependencies
 
-* NLP preprocessing service
-* Machine learning text pipelines
-* Academic NLP demonstrations
-* Backend support for sentiment analysis or classification
-* Data cleaning for text analytics
+Beginner-friendly code structure
 
----
+Easily extendable for additional NLP features
 
-## Learning Outcomes
+Practical Applications
 
-* Understanding NLP preprocessing steps
-* Practical experience with NLTK
-* Building REST APIs using Flask
-* Handling configurable data processing pipelines
-* JSON-based client-server communication
+NLP preprocessing microservice
 
----
+Text cleaning for machine learning models
 
-## Author
+Academic and educational NLP demonstrations
 
-**Muhammad Abdullah Nazir**
-AI | Machine Learning | NLP | Python | Flask
+Backend for sentiment analysis or text classification
 
+Data preparation for analytics and AI systems
+
+Skills & Concepts Gained
+
+Hands-on experience with NLP preprocessing techniques
+
+Practical use of the NLTK library
+
+REST API development with Flask
+
+Building configurable data processing pipelines
+
+Client–server communication using JSON
+
+Author
+
+Muhammad Saqlain
+AI • Machine Learning • NLP • Python • Flask
